@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hcj_car_rentsystem.controller.RentalPaymentController">
+   <children>
+      <Pane prefHeight="55.0" prefWidth="1220.0" style="-fx-background-color: black;">
+         <children>
+            <Text layoutX="95.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYMENT MANAGEMENT" wrappingWidth="456.3049340248108">
+               <font>
+                  <Font name="Times New Roman Bold" size="30.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.0037878796909794664" endY="0.15530308855302402">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="42.0" fitWidth="53.0" layoutX="24.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/icons8-payment-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="38.0" layoutY="124.0" prefHeight="237.0" prefWidth="750.0" style="-fx-background-color: #C0CAD8; -fx-background-radius: 20;">
+         <children>
+            <HBox alignment="CENTER" layoutX="16.0" layoutY="114.0" prefHeight="42.0" prefWidth="332.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Paid Date" wrappingWidth="109.98253852128983">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <DatePicker fx:id="paidDatePicker" prefHeight="32.0" prefWidth="210.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="5.0" layoutY="65.0" prefHeight="40.0" prefWidth="355.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment ID" wrappingWidth="113.68533325195312">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="paymentIdField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="214.0" promptText="Payment ID" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" blendMode="MULTIPLY" layoutX="11.0" layoutY="14.0" prefHeight="34.0" prefWidth="690.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #0052CC;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Payment Details">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.07575756311416626" endY="0.5340909108971104" startY="0.4999999927751946">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="518.0" spacing="10.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="394.0" layoutY="64.0" prefHeight="42.0" prefWidth="308.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Booking ID" wrappingWidth="141.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="bookingIdField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="182.0" promptText="Booking ID" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="394.0" layoutY="115.0" prefHeight="41.0" prefWidth="355.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Method   ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="paymentMethodCombo" prefHeight="31.0" prefWidth="154.0" style="-fx-background-radius: 20;" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="16.0" layoutY="165.0" prefHeight="42.0" prefWidth="332.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Paid Time" wrappingWidth="105.98256903886795">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="paidTimeField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="212.0" promptText="Paid Time" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <HBox layoutX="38.0" layoutY="71.0" prefHeight="30.0" prefWidth="294.0" spacing="5.0">
+         <children>
+            <ImageView fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/—Pngtree—magnifying%20glass%20clipart%20search%20icon_16970527.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="searchField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="33.0" prefWidth="228.0" promptText="Search by Booking ID or Customer ID " style="-fx-background-radius: 10;" />
+         </children>
+      </HBox>
+      <Button layoutX="913.0" layoutY="713.0" mnemonicParsing="false" onAction="#printInvoice" prefHeight="49.0" prefWidth="228.0" style="-fx-background-color: #2BA14A; -fx-background-radius: 15;" text="Print Invoice">
+         <font>
+            <Font name="Times New Roman Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="623.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleSavePayment" prefHeight="35.0" prefWidth="106.0" style="-fx-background-radius: 20; -fx-background-color: #D8E3F3; -fx-border-color: black; -fx-border-radius: 20;" text="Save">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button layoutX="755.0" layoutY="65.0" mnemonicParsing="false" onAction="#handlePaymentDelete" prefHeight="35.0" prefWidth="106.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #B2C7E6;" text="Delete">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button layoutX="890.0" layoutY="65.0" mnemonicParsing="false" onAction="#handlePaymentUpdate" prefHeight="35.0" prefWidth="106.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #8BABDA;" text="Update">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button layoutX="1030.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleReset" prefHeight="35.0" prefWidth="106.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #658FCD;" text="Reset">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Pane layoutX="868.0" layoutY="130.0" prefHeight="559.0" prefWidth="317.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 10;">
+         <children>
+            <HBox alignment="CENTER" layoutX="15.0" layoutY="90.0" prefHeight="42.0" prefWidth="273.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start km" wrappingWidth="141.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="startKmField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="165.0" promptText="Start km" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="13.0" layoutY="144.0" prefHeight="42.0" prefWidth="273.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="End km" wrappingWidth="141.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="endKmField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="182.0" promptText="End km" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="13.0" layoutY="193.0" prefHeight="42.0" prefWidth="273.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total km" wrappingWidth="141.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="totalKmField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="182.0" promptText="Total km" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="13.0" layoutY="254.0" prefHeight="42.0" prefWidth="273.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Advance amount" wrappingWidth="141.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="advanceAmountField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="182.0" promptText="LKR" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="13.0" layoutY="312.0" prefHeight="42.0" prefWidth="273.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Rent" wrappingWidth="141.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="dailyRentField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="182.0" promptText="LKR" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="15.0" layoutY="371.0" prefHeight="42.0" prefWidth="265.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Km Charge" wrappingWidth="141.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="amountChargedPerKmField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="182.0" promptText="LKR" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <Pane layoutX="25.0" layoutY="14.0" prefHeight="35.0" prefWidth="265.0" style="-fx-background-color: #0052CC; -fx-background-radius: 20;">
+               <children>
+                  <Text layoutX="33.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="    Payment Calculation">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.07575756311416626" endY="0.5340909108971104" startY="0.4999999927751946">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="74.0" layoutY="504.0" prefHeight="42.0" prefWidth="239.0">
+               <children>
+                  <Text layoutX="-16.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount     : " wrappingWidth="160.00000000000006">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="totalAmountField" layoutX="137.0" layoutY="1.0" prefHeight="40.0" prefWidth="97.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Line endX="176.7999267578125" layoutX="124.0" layoutY="503.0" startX="-110.20001220703125" />
+         </children>
+      </Pane>
+      <Pane layoutX="41.0" layoutY="383.0" prefHeight="395.0" prefWidth="750.0" style="-fx-background-color: #C0CAD8; -fx-background-radius: 20;">
+         <children>
+            <HBox alignment="CENTER_LEFT" blendMode="MULTIPLY" layoutX="8.0" layoutY="14.0" prefHeight="34.0" prefWidth="730.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #0052CC;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Payment List " wrappingWidth="135.73433303833008">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.05681816917477232" endY="0.06818184888724116">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Double - click to edit)">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.030303020368922774" endY="0.07196971164508292" startX="0.026515153321352875">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+               </children>
+            </HBox>
+            <TableView fx:id="tblPaymentDetails" layoutX="14.0" layoutY="60.0" prefHeight="318.0" prefWidth="722.0">
+              <columns>
+                <TableColumn fx:id="colPaymentId" prefWidth="75.0" text="Payment ID" />
+                <TableColumn fx:id="colBookingId" prefWidth="75.0" text="Booking ID" />
+                  <TableColumn fx:id="colPaymentMethod" prefWidth="106.40003967285156" text="Payment Method" />
+                  <TableColumn fx:id="colPaidDate" prefWidth="76.0" text="Paid Date" />
+                  <TableColumn fx:id="colPaidTime" prefWidth="133.60003662109375" text="Paid Time" />
+                  <TableColumn fx:id="colDailyRent" prefWidth="75.0" text="Daily Rent" />
+                  <TableColumn fx:id="colTotalKm" prefWidth="75.0" text="Total km" />
+                  <TableColumn fx:id="colTotalAmount" prefWidth="102.79998779296875" text="Total Amount" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

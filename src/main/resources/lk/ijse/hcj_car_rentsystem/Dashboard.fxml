@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hcj_car_rentsystem.controller.DashboardController">
+   <children>
+      <Pane prefHeight="55.0" prefWidth="1220.0" style="-fx-background-color: black;">
+         <children>
+            <Text layoutX="72.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD">
+               <font>
+                  <Font name="Times New Roman Bold" size="30.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.0037878796909794664" endY="0.15530308855302402">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="19.0" fitWidth="41.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/toppng.com-ewd-dashboard-icon-ufaq-02-icon-1047x603.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="39.0" layoutY="81.0" prefHeight="381.0" prefWidth="1142.0" style="-fx-background-color: #E0E2EB; -fx-background-radius: 20;">
+         <children>
+            <Pane layoutX="53.0" layoutY="26.0" prefHeight="153.0" prefWidth="226.0" style="-fx-background-color: #7EE151; -fx-background-radius: 10; -fx-border-color: #00CC33; -fx-border-radius: 10;">
+               <children>
+                  <Button layoutX="30.0" layoutY="110.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="REG USERS" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <ImageView fitHeight="46.0" fitWidth="53.0" layoutX="88.0" layoutY="8.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/icons8-user-60.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblTotalUsers" alignment="CENTER" layoutX="72.0" layoutY="58.0" prefHeight="46.0" prefWidth="85.0" textFill="#2c6927">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane layoutX="326.0" layoutY="26.0" prefHeight="153.0" prefWidth="226.0" style="-fx-background-color: #E18851; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #CC7400;">
+               <children>
+                  <Button layoutX="30.0" layoutY="110.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="VEHICLES" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <ImageView fitHeight="46.0" fitWidth="53.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/icons8-vehicle-100.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblTotalVehicles" alignment="CENTER" layoutX="77.0" layoutY="60.0" prefHeight="46.0" prefWidth="85.0" textFill="#815313">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane layoutX="595.0" layoutY="26.0" prefHeight="153.0" prefWidth="226.0" style="-fx-background-color: #51C2E1; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #0085CC;">
+               <children>
+                  <Button layoutX="30.0" layoutY="110.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="DRIVERS" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="93.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/icons8-driver-52.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblTotalDrivers" alignment="CENTER" layoutX="71.0" layoutY="64.0" prefHeight="46.0" prefWidth="85.0" textFill="#1e487e">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane layoutX="860.0" layoutY="26.0" prefHeight="153.0" prefWidth="226.0" style="-fx-background-color: #E15164; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red;">
+               <children>
+                  <Button layoutX="30.0" layoutY="110.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="CUSTOMERS" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <Label fx:id="lblTotalCustomers" alignment="CENTER" layoutX="71.0" layoutY="60.0" prefHeight="46.0" prefWidth="85.0" textFill="#760a0a">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font></Label>
+                  <ImageView fitHeight="46.0" fitWidth="53.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/toppng.com-white-person-icon-people-white-icon-abstract-backgrounds-436x368.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="452.0" layoutY="210.0" prefHeight="153.0" prefWidth="226.0" style="-fx-background-color: #9B25DA; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #780099;">
+               <children>
+                  <Button layoutX="30.0" layoutY="110.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="BOOKINGS" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <Label fx:id="lblTotalBookings" alignment="CENTER" layoutX="71.0" layoutY="64.0" prefHeight="46.0" prefWidth="85.0" textFill="#43075b">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font></Label>
+                  <ImageView fitHeight="46.0" fitWidth="53.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/icons8-booking-64.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <BarChart fx:id="vehicleComparisonChart" barGap="2.0" categoryGap="20.0" layoutX="16.0" layoutY="460.0" prefHeight="334.0" prefWidth="1174.0">
+         <xAxis>
+            <CategoryAxis label="Vehicle Model" side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis label="Rent Count" side="LEFT" />
+         </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

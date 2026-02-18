@@ -1,0 +1,195 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="invoice" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="90792309-bf69-4fd0-bb81-452c8da7b389">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL-RENTCAR"/>
+	<parameter name="PAYMENT_ID" class="java.lang.Integer"/>
+	<query language="SQL"><![CDATA[SELECT 
+    p.*, 
+    v.brand AS vehicle_brand, 
+    v.model AS vehicle_model
+FROM payments p
+JOIN bookings b ON p.booking_id = b.booking_id
+JOIN vehicle_assign_details vad ON b.booking_id = vad.booking_id
+JOIN vehicles v ON vad.vehicle_id = v.vehicle_id
+WHERE p.payment_id = $P{PAYMENT_ID}]]></query>
+	<field name="payment_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="payment_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="payment_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="booking_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="start_km" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="start_km"/>
+		<property name="com.jaspersoft.studio.field.label" value="start_km"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="end_km" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="end_km"/>
+		<property name="com.jaspersoft.studio.field.label" value="end_km"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="total_km" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="total_km"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_km"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="total_amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="daily_rent" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="daily_rent"/>
+		<property name="com.jaspersoft.studio.field.label" value="daily_rent"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="amount_charged_per_1km" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="amount_charged_per_1km"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount_charged_per_1km"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="payment_method" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="payment_method"/>
+		<property name="com.jaspersoft.studio.field.label" value="payment_method"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="paid_time" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="paid_time"/>
+		<property name="com.jaspersoft.studio.field.label" value="paid_time"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="paid_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="paid_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="paid_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="advance_amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="advance_amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="advance_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="vehicle_brand" class="java.lang.String"/>
+	<field name="vehicle_model" class="java.lang.String"/>
+	<background splitType="Stretch"/>
+	<title height="87" splitType="Stretch">
+		<element kind="rectangle" uuid="3c399c38-1646-459e-b87d-b808e369ef9e" x="-20" y="-20" width="595" height="100" backcolor="#2C0DA8"/>
+		<element kind="staticText" uuid="41e682fc-6e3f-4110-abb8-820a966a9267" x="49" y="-10" width="455" height="30" forecolor="#FFFFFF" backcolor="#2A15B3" fontName="Times New Roman" fontSize="25.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[HCI RENT A CAR & TOURS]]></text>
+		</element>
+		<element kind="staticText" uuid="6ee2fcaa-e0f8-441b-a08a-3b6e03f89efb" x="116" y="20" width="322" height="29" forecolor="#FFFFFF" fontSize="16.0" hTextAlign="Center">
+			<text><![CDATA[No 8/A, Hiriketiya Road, Ambalangoda]]></text>
+		</element>
+		<element kind="staticText" uuid="7b9991aa-f243-4b5a-b865-ab413c9c4db1" x="190" y="40" width="151" height="23" forecolor="#FFFFFF" fontSize="14.0" hTextAlign="Center">
+			<text><![CDATA[Reg. No RB 641PQ]]></text>
+		</element>
+		<element kind="staticText" uuid="b86cb003-6268-46c4-ba66-7084e6c666b2" x="170" y="57" width="190" height="23" forecolor="#FFFFFF" fontSize="14.0" hTextAlign="Center">
+			<text><![CDATA[0912254248 / 0771456732]]></text>
+		</element>
+	</title>
+	<pageHeader height="41" splitType="Stretch">
+		<element kind="rectangle" uuid="a2a2c2f7-e250-4c29-8942-c1048dfb2a75" x="-20" y="6" width="595" height="28" backcolor="#0D0C0C"/>
+		<element kind="staticText" uuid="893011a3-9d7d-4b26-84f4-73478fdb67c2" x="181" y="6" width="190" height="29" forecolor="#FFFFFF" fontSize="22.0" hTextAlign="Center">
+			<text><![CDATA[INVOICE]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="185" splitType="Stretch">
+		<element kind="staticText" uuid="568d6b7a-d30b-47df-bbaa-8eea5f2385a9" x="0" y="11" width="110" height="19" fontSize="12.0" bold="true">
+			<text><![CDATA[Payment ID          :  ]]></text>
+		</element>
+		<element kind="staticText" uuid="49c3e684-0814-4378-8baa-9dd3b61005fe" x="0" y="40" width="110" height="19" fontSize="12.0" bold="true">
+			<text><![CDATA[Booking ID           :  ]]></text>
+		</element>
+		<element kind="textField" uuid="91e5266c-643b-4836-bd6b-9e6f980a23d5" x="120" y="11" width="100" height="18" fontSize="14.0" hTextAlign="Left">
+			<expression><![CDATA[$F{payment_id}]]></expression>
+		</element>
+		<element kind="textField" uuid="d742d1eb-20bb-46e9-aa75-bcac87e84677" x="120" y="40" width="100" height="19" fontSize="14.0" hTextAlign="Left">
+			<expression><![CDATA[$F{booking_id}]]></expression>
+		</element>
+		<element kind="staticText" uuid="76954271-e6ea-4018-a72c-0cc9de6f4097" x="1" y="160" width="89" height="19" fontSize="12.0" bold="true" hTextAlign="Left">
+			<text><![CDATA[Start km]]></text>
+		</element>
+		<element kind="staticText" uuid="4aaf9340-5cce-40b5-aa6a-ffdce3db8d59" x="90" y="160" width="100" height="19" fontSize="12.0" bold="true" hTextAlign="Left">
+			<text><![CDATA[End km]]></text>
+		</element>
+		<element kind="staticText" uuid="7161425b-f66b-4c97-b14d-ea3dd48e2beb" x="190" y="160" width="90" height="19" fontSize="12.0" bold="true" hTextAlign="Left">
+			<text><![CDATA[  Total km]]></text>
+		</element>
+		<element kind="staticText" uuid="50f2513d-991c-4514-b5ec-f41b35c6a4c5" x="280" y="160" width="90" height="19" fontSize="12.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Daily Rent]]></text>
+		</element>
+		<element kind="staticText" uuid="1e062546-839f-4cdb-889a-840d61e32270" x="370" y="160" width="100" height="19" fontSize="12.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Extra km charge]]></text>
+		</element>
+		<element kind="staticText" uuid="bd931763-c3b5-4311-b715-1e125a4642a2" x="0" y="70" width="110" height="19" fontSize="12.0" bold="true">
+			<text><![CDATA[Payment Method :]]></text>
+		</element>
+		<element kind="textField" uuid="482a388f-b338-46e9-a6bf-09cbd8ec0068" x="120" y="70" width="170" height="19" fontSize="14.0" hTextAlign="Left">
+			<expression><![CDATA[$F{payment_method}]]></expression>
+		</element>
+		<element kind="staticText" uuid="7c11d99f-c0cb-482f-8a70-0ed95f66b89f" x="471" y="160" width="80" height="19" fontSize="12.0" bold="true" hTextAlign="Right">
+			<text><![CDATA[Advance ]]></text>
+		</element>
+		<element kind="staticText" uuid="5f6e244c-72e6-4e54-9171-e80c52712f8e" x="0" y="99" width="110" height="19" fontSize="12.0" bold="true">
+			<text><![CDATA[Paid Date             : ]]></text>
+		</element>
+		<element kind="textField" uuid="7343f646-5d80-4c13-820e-a7b80bd3e5d8" x="120" y="99" width="220" height="19" fontSize="14.0" hTextAlign="Left">
+			<expression><![CDATA[$F{paid_date}]]></expression>
+		</element>
+		<element kind="staticText" uuid="c421a13f-3184-4a4f-9fb4-5e66643947cd" x="328" y="11" width="110" height="19" fontSize="12.0" bold="true">
+			<text><![CDATA[Vehicle Model       :  ]]></text>
+		</element>
+		<element kind="staticText" uuid="ae6d6306-1c92-4ba1-8bf6-d99beb19055c" x="328" y="40" width="110" height="19" fontSize="12.0" bold="true">
+			<text><![CDATA[Vehicle Brand       :  ]]></text>
+		</element>
+		<element kind="textField" uuid="4f8e9a78-06d5-49fc-890a-ac64e75e9c7a" x="440" y="40" width="100" height="19" fontSize="14.0">
+			<expression><![CDATA[$F{vehicle_brand}]]></expression>
+		</element>
+		<element kind="textField" uuid="0b93577f-2c53-4f9a-9543-830f2a7df84c" x="440" y="10" width="100" height="19" fontSize="14.0">
+			<expression><![CDATA[$F{vehicle_model}]]></expression>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<element kind="textField" uuid="5d0931b9-97db-46c5-8f29-998bc1d1220b" x="0" y="10" width="90" height="20" fontSize="12.0">
+				<expression><![CDATA[$F{start_km}]]></expression>
+			</element>
+			<element kind="textField" uuid="b40d03a8-2023-478d-9073-a30aa08cc72b" x="95" y="10" width="95" height="20" fontSize="12.0">
+				<expression><![CDATA[$F{end_km}]]></expression>
+			</element>
+			<element kind="textField" uuid="d06d45b3-163f-49b2-958c-0cec63269497" x="200" y="10" width="70" height="20" fontSize="12.0">
+				<expression><![CDATA[$F{total_km}]]></expression>
+			</element>
+			<element kind="textField" uuid="bdbab822-ac12-4e72-9137-bf75e367c4f8" x="290" y="10" width="60" height="20" fontSize="12.0" hTextAlign="Right">
+				<expression><![CDATA[$F{daily_rent}]]></expression>
+			</element>
+			<element kind="textField" uuid="6a8fa8ca-76c5-48d4-abc4-74ecfe8d1544" x="371" y="10" width="100" height="20" fontSize="12.0" hTextAlign="Right">
+				<expression><![CDATA[$F{amount_charged_per_1km}]]></expression>
+			</element>
+			<element kind="textField" uuid="c414143f-6c3e-458c-8154-4a093ee3b40e" x="471" y="8" width="80" height="20" fontSize="12.0" hTextAlign="Right">
+				<expression><![CDATA[$F{advance_amount}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="53" splitType="Stretch">
+		<element kind="staticText" uuid="c60d3ce4-2787-44b3-9dc2-6e690fd2dd43" x="263" y="20" width="162" height="30" fontSize="16.0" bold="true">
+			<text><![CDATA[Total Amount  :  LKR]]></text>
+		</element>
+		<element kind="textField" uuid="aa5783c7-8505-4f9e-8ac7-40e8adf75270" x="425" y="20" width="126" height="30" fontSize="16.0" bold="true" hTextAlign="Center">
+			<expression><![CDATA[$F{total_amount}]]></expression>
+		</element>
+		<element kind="line" uuid="07fd5703-242b-4fb2-b5a8-38fbb0e48acc" x="250" y="10" width="310" height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+	</columnFooter>
+	<pageFooter height="65" splitType="Stretch">
+		<element kind="rectangle" uuid="ea592f40-3554-457a-a5da-f031a328e849" x="-20" y="40" width="595" height="18" backcolor="#150DA3"/>
+		<element kind="staticText" uuid="94965848-9895-48d5-83e7-8cfe5d0bd796" x="190" y="10" width="190" height="20" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Thank You !  Come Again ]]></text>
+		</element>
+	</pageFooter>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

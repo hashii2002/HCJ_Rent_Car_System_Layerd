@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hcj_car_rentsystem.controller.UserController">
+   <children>
+      <Pane prefHeight="55.0" prefWidth="1220.0" style="-fx-background-color: black;">
+         <children>
+            <Text layoutX="95.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER MANAGEMENT" wrappingWidth="456.3049340248108">
+               <font>
+                  <Font name="Times New Roman Bold" size="30.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.0037878796909794664" endY="0.15530308855302402">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="31.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/icons8-user-60.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <HBox layoutX="40.0" layoutY="65.0" prefHeight="30.0" prefWidth="294.0" spacing="5.0">
+         <children>
+            <ImageView fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/—Pngtree—magnifying%20glass%20clipart%20search%20icon_16970527.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="searchField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="33.0" prefWidth="228.0" promptText="Search by ID or Name" style="-fx-background-radius: 10;" />
+         </children>
+      </HBox>
+      <Pane layoutX="34.0" layoutY="111.0" prefHeight="301.0" prefWidth="1152.0" style="-fx-background-color: #C0CAD8; -fx-background-radius: 20;">
+         <children>
+            <HBox alignment="CENTER" layoutX="27.0" layoutY="130.0" prefHeight="42.0" prefWidth="345.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name     ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="fullNameField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="252.0" promptText="Full Name" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="27.0" layoutY="190.0" prefHeight="98.0" prefWidth="383.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address          ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="addressField" prefHeight="98.0" prefWidth="261.0" promptText="Address">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="27.0" layoutY="76.0" prefHeight="40.0" prefWidth="345.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User ID   " wrappingWidth="108.08535766601562">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="userIdField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="249.0" promptText="User ID" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" blendMode="MULTIPLY" layoutX="20.0" layoutY="14.0" prefHeight="34.0" prefWidth="1113.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #0052CC;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    User Details">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.07575756311416626" endY="0.5340909108971104" startY="0.4999999927751946">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="930.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleSaveUser" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-background-color: #D8E3F3; -fx-border-color: black; -fx-border-radius: 20;" text="Save">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleUserDelete" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #B2C7E6;" text="Delete">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleUserUpdate" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #8BABDA;" text="Update">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleReset" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #658FCD;" text="Reset">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="440.0" layoutY="75.0" prefHeight="41.0" prefWidth="321.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User Name  ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="userNameField" prefHeight="34.0" prefWidth="251.0" promptText="UserName" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="440.0" layoutY="130.0" prefHeight="41.0" prefWidth="321.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NIC             ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="nicField" prefHeight="34.0" prefWidth="251.0" promptText="NIC" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="440.0" layoutY="180.0" prefHeight="41.0" prefWidth="321.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact       ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="contactField" prefHeight="34.0" prefWidth="251.0" promptText="Contact" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="832.0" layoutY="75.0" prefHeight="41.0" prefWidth="294.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password  ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="passwordField" prefHeight="34.0" prefWidth="251.0" promptText="Password" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="832.0" layoutY="131.0" prefHeight="41.0" prefWidth="294.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Role          ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="roleField" prefHeight="34.0" prefWidth="218.0" promptText="Role" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="440.0" layoutY="232.0" prefHeight="41.0" prefWidth="321.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email          ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="emailField" prefHeight="34.0" prefWidth="251.0" promptText="Email" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="34.0" layoutY="428.0" prefHeight="357.0" prefWidth="1152.0" style="-fx-background-radius: 20; -fx-background-color: #C0CAD8;">
+         <children>
+            <TableView fx:id="tblUser" layoutX="26.0" layoutY="63.0" prefHeight="270.0" prefWidth="1105.0">
+               <columns>
+                  <TableColumn fx:id="colUserId" prefWidth="68.79998397827148" text="User ID" />
+                  <TableColumn fx:id="colUserName" prefWidth="89.60000610351562" text="User Name" />
+                  <TableColumn fx:id="colFullName" prefWidth="179.2000274658203" text="Full Name" />
+                  <TableColumn fx:id="colRole" prefWidth="105.60003662109375" text="Role" />
+                  <TableColumn fx:id="colNic" prefWidth="106.39996337890625" text="NIC" />
+                  <TableColumn fx:id="colContact" prefWidth="92.800048828125" text="Contact" />
+                  <TableColumn fx:id="colPassword" prefWidth="92.80010986328125" text="Password" />
+                  <TableColumn fx:id="colAddress" prefWidth="181.60003662109375" text="Address" />
+                  <TableColumn fx:id="colEmail" prefWidth="182.39996337890625" text="Email" />
+               </columns>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" blendMode="MULTIPLY" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="1119.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #0052CC;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   User List " wrappingWidth="102.93434524536133">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.05681816917477232" endY="0.06818184888724116">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Double - click to edit)">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.030303020368922774" endY="0.07196971164508292" startX="0.026515153321352875">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Label fx:id="lblTotalUsers" layoutX="1072.0" layoutY="61.0" prefHeight="42.0" prefWidth="103.0" style="-fx-background-color: non; -fx-background-radius: 10; -fx-border-radius: 10;" textFill="#181717" textOverrun="CLIP">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text layoutX="934.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Users   :   " wrappingWidth="137.59375">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

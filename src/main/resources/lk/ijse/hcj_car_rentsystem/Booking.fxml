@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hcj_car_rentsystem.controller.BookingController">
+   <children>
+      <Pane prefHeight="55.0" prefWidth="1220.0" style="-fx-background-color: black;">
+         <children>
+            <Text layoutX="95.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOOKING MANAGEMENT" wrappingWidth="456.3049340248108">
+               <font>
+                  <Font name="Times New Roman Bold" size="30.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.0037878796909794664" endY="0.15530308855302402">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="46.0" fitWidth="51.0" layoutX="24.0" layoutY="2.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/icons8-booking-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <HBox layoutX="54.0" layoutY="78.0" prefHeight="30.0" prefWidth="294.0" spacing="5.0">
+         <children>
+            <ImageView fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/—Pngtree—magnifying%20glass%20clipart%20search%20icon_16970527.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="searchField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="33.0" prefWidth="228.0" promptText="Search by Booking ID or Customer ID " style="-fx-background-radius: 10;" />
+         </children>
+      </HBox>
+      <Pane layoutX="34.0" layoutY="167.0" prefHeight="262.0" prefWidth="1152.0" style="-fx-background-color: #C0CAD8; -fx-background-radius: 20;">
+         <children>
+            <HBox alignment="CENTER" layoutX="16.0" layoutY="114.0" prefHeight="42.0" prefWidth="332.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Date" wrappingWidth="109.98253852128983">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <DatePicker fx:id="bookingDatePicker" prefHeight="32.0" prefWidth="210.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="5.0" layoutY="65.0" prefHeight="40.0" prefWidth="355.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Booking ID   " wrappingWidth="113.68533325195312">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="bookingIdField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="214.0" promptText="Booking ID" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" blendMode="MULTIPLY" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="1119.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #0052CC;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Booking Details">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.07575756311416626" endY="0.5340909108971104" startY="0.4999999927751946">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="961.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleSaveBooking" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-background-color: #D8E3F3; -fx-border-color: black; -fx-border-radius: 20;" text="Save">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleBookingDelete" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #B2C7E6;" text="Delete">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleBookingUpdate" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #8BABDA;" text="Update">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleReset" prefHeight="30.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-background-color: #658FCD;" text="Reset">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="21.0" layoutY="161.0" prefHeight="41.0" prefWidth="321.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="108.0146484375">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="statusCombo" prefHeight="33.0" prefWidth="213.0" style="-fx-background-radius: 20;" />
+               </children>
+            </HBox>
+            <HBox layoutX="798.0" layoutY="162.0" prefHeight="89.0" prefWidth="332.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note       " wrappingWidth="107.482421875">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="notesField" prefHeight="90.0" prefWidth="243.0" promptText="Note">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="410.0" layoutY="114.0" prefHeight="42.0" prefWidth="332.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="105.98256903886795">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <DatePicker fx:id="startDatePicker" prefHeight="30.0" prefWidth="203.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="794.0" layoutY="114.0" prefHeight="42.0" prefWidth="321.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="105.9825080037117">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <DatePicker fx:id="endDatePicker" prefHeight="33.0" prefWidth="204.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="410.0" layoutY="64.0" prefHeight="42.0" prefWidth="332.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID" wrappingWidth="105.98256903886795">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="customerIdField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="212.0" promptText="Customer ID" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="801.0" layoutY="72.0" prefHeight="42.0" prefWidth="321.0" style="-fx-background-radius: 20;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Advance" wrappingWidth="100.3825324177742">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="advanceField" onKeyPressed="#handleSearchFromSearchBar" prefHeight="34.0" prefWidth="240.0" promptText="Advance" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="416.0" layoutY="165.0" prefHeight="41.0" prefWidth="355.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Driver Availability List  ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="driverIDCombo" prefHeight="31.0" prefWidth="142.0" style="-fx-background-radius: 20;" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="215.0" prefHeight="41.0" prefWidth="380.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Availability List   ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="vehicleIDCombo" prefHeight="34.0" prefWidth="154.0" style="-fx-background-radius: 20;" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="416.0" layoutY="207.0" prefHeight="41.0" prefWidth="355.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Driver Assign  ">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="driverAssignCombo" prefHeight="31.0" prefWidth="142.0" style="-fx-background-radius: 20;" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="34.0" layoutY="436.0" prefHeight="349.0" prefWidth="1152.0" style="-fx-background-radius: 20; -fx-background-color: #C0CAD8;">
+         <children>
+            <TableView fx:id="tblBooking" layoutX="35.0" layoutY="66.0" prefHeight="270.0" prefWidth="1098.0">
+               <columns>
+                  <TableColumn fx:id="colBookingId" prefWidth="80.80001068115234" text="Booking ID" />
+                  <TableColumn fx:id="colCustomerId" prefWidth="84.79998779296875" text="Customer ID" />
+                  <TableColumn fx:id="colBookingDate" prefWidth="104.0" text="Booking Date" />
+                  <TableColumn fx:id="colStartDate" prefWidth="106.4000244140625" text="Start Date" />
+                  <TableColumn fx:id="colEndDate" prefWidth="92.80001831054688" text="End Date" />
+                  <TableColumn fx:id="colStatus" prefWidth="96.00006103515625" text="Status" />
+                  <TableColumn fx:id="colAdvance" prefWidth="87.20001220703125" text="Advance" />
+                  <TableColumn fx:id="colDriverID" prefWidth="75.20001220703125" text="Driver ID" />
+                  <TableColumn fx:id="colVehicleID" prefWidth="80.79998779296875" text="Vehicle ID" />
+                  <TableColumn fx:id="colDriverAssign" prefWidth="98.39996337890625" text="Driver Assign" />
+                  <TableColumn fx:id="colNotes" prefWidth="193.5999755859375" text="Note" />
+               </columns>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" blendMode="MULTIPLY" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="1119.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #0052CC;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Booking List " wrappingWidth="135.73433303833008">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.05681816917477232" endY="0.06818184888724116">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Double - click to edit)">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <fill>
+                        <LinearGradient endX="0.030303020368922774" endY="0.07196971164508292" startX="0.026515153321352875">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="407.0" layoutY="85.0" prefHeight="70.0" prefWidth="168.0" style="-fx-background-color: linear-gradient(to right, #2AA22E, #85E088); -fx-border-color: green; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <children>
+            <Text layoutX="16.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmed Booking">
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.022727273630373405" endY="0.09469699769309067">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Label fx:id="lblConfirmedCount" alignment="CENTER" layoutX="53.0" layoutY="35.0" prefHeight="27.0" prefWidth="61.0" textFill="#195e29">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="846.0" layoutY="85.0" prefHeight="70.0" prefWidth="168.0" style="-fx-background-color: green; -fx-background-radius: 10; -fx-border-color: red; -fx-border-radius: 10; -fx-background-color: linear-gradient(to right, #E64C4C, #EC7979);">
+         <children>
+            <Text layoutX="23.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cancelled Booking">
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.022727273630373405" endY="0.09469699769309067">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Label fx:id="lblCancelledCount" alignment="CENTER" layoutX="54.0" layoutY="32.0" prefHeight="27.0" prefWidth="61.0" textFill="#860808">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="628.0" layoutY="85.0" prefHeight="70.0" prefWidth="168.0" style="-fx-background-color: linear-gradient(to right, #85E0D7, #34CBBC); -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #2AA296;">
+         <children>
+            <Text layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Booking">
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.022727273630373405" endY="0.09469699769309067">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Label fx:id="lblCompletedCount" alignment="CENTER" layoutX="54.0" layoutY="32.0" prefHeight="27.0" prefWidth="61.0" textFill="#0b617e">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="1058.0" layoutY="68.0" mnemonicParsing="false" onAction="#handlePrint" prefHeight="34.0" prefWidth="128.0" style="-fx-background-radius: 20; -fx-background-color: #ADB2B8; -fx-border-color: black; -fx-border-radius: 20;" text="View Report">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

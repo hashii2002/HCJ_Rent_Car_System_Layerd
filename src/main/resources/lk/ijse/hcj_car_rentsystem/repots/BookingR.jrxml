@@ -1,0 +1,145 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="BookingR" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="320b160d-4cc6-4d54-b1a9-d57bc05d7863">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL-RENTCAR"/>
+	<query language="SQL"><![CDATA[SELECT*FROM bookings]]></query>
+	<field name="booking_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="customer_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="customer_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="booking_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="booking_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="booking_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="start_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="start_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="start_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="end_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="end_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="end_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="booking_status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="booking_status"/>
+		<property name="com.jaspersoft.studio.field.label" value="booking_status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="advance_amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="advance_amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="advance_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="notes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="notes"/>
+		<property name="com.jaspersoft.studio.field.label" value="notes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<field name="driver_assign" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="driver_assign"/>
+		<property name="com.jaspersoft.studio.field.label" value="driver_assign"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookings"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="67" splitType="Stretch">
+		<element kind="rectangle" uuid="66ffe1fe-1f43-4ddf-983f-92b7afd9efef" x="-20" y="-20" width="840" height="87" backcolor="#0F29AB"/>
+		<element kind="staticText" uuid="7b89e612-fc0d-4b8d-bf30-20207304819d" x="174" y="-10" width="455" height="30" forecolor="#FFFFFF" backcolor="#2A15B3" fontName="Times New Roman" fontSize="25.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[HCI RENT A CAR & TOURS]]></text>
+		</element>
+		<element kind="staticText" uuid="f7109bac-268f-49c7-9d19-8668554c2e13" x="240" y="19" width="322" height="29" forecolor="#FFFFFF" fontSize="16.0" hTextAlign="Center">
+			<text><![CDATA[No 8/A, Hiriketiya Road, Ambalangoda]]></text>
+		</element>
+		<element kind="staticText" uuid="a4202e8f-0e2f-4ef2-94aa-2f9ce0d2305b" x="330" y="37" width="151" height="23" forecolor="#FFFFFF" fontSize="14.0" hTextAlign="Center">
+			<text><![CDATA[Reg. No RB 641PQ]]></text>
+		</element>
+	</title>
+	<pageHeader height="53" splitType="Stretch">
+		<element kind="staticText" uuid="c43fdc0f-7fed-4a0a-9df7-390b9cecf86c" x="310" y="3" width="175" height="28" fontName="Times New Roman" fontSize="22.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Booking Report]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="43" splitType="Stretch">
+		<element kind="staticText" uuid="d9c04c3a-f468-4abc-b085-3d5700902a8d" x="-10" y="10" width="70" height="20" fontSize="13.0" hTextAlign="Center">
+			<text><![CDATA[#Book ID]]></text>
+		</element>
+		<element kind="staticText" uuid="dc709549-7d08-4d65-b0d6-5a0840684d9a" x="60" y="9" width="60" height="20" fontSize="13.0" hTextAlign="Center">
+			<text><![CDATA[#Cus ID]]></text>
+		</element>
+		<element kind="staticText" uuid="74648960-bcd2-4eb4-9dbd-094b4a5fbb23" x="120" y="10" width="110" height="20" fontSize="13.0" hTextAlign="Center">
+			<text><![CDATA[Booking Date]]></text>
+		</element>
+		<element kind="staticText" uuid="e49d5b67-6e5d-448f-aed3-0f79088237a6" x="230" y="10" width="110" height="20" fontSize="13.0" hTextAlign="Center">
+			<text><![CDATA[Start Date]]></text>
+		</element>
+		<element kind="staticText" uuid="d9a82238-d41c-462d-925d-5baae72ecec4" x="340" y="10" width="110" height="20" fontSize="13.0" hTextAlign="Center">
+			<text><![CDATA[End Date]]></text>
+		</element>
+		<element kind="staticText" uuid="b0c6241e-aa16-439d-a1f3-1dba78693684" x="450" y="10" width="90" height="20" fontSize="13.0" hTextAlign="Center">
+			<text><![CDATA[Status]]></text>
+		</element>
+		<element kind="staticText" uuid="82cb1a8d-6ee9-49f1-990d-bc29193c218b" x="540" y="10" width="70" height="20" fontSize="13.0" hTextAlign="Left">
+			<text><![CDATA[Advance ]]></text>
+		</element>
+		<element kind="staticText" uuid="8c0a5960-523b-4afc-84aa-15c0c368ab96" x="610" y="10" width="80" height="20" fontSize="13.0" hTextAlign="Left">
+			<text><![CDATA[Driver Assign]]></text>
+		</element>
+		<element kind="staticText" uuid="875a3e88-24b0-4845-a6fd-edbea6c8a231" x="690" y="10" width="120" height="20" fontSize="13.0" hTextAlign="Center">
+			<text><![CDATA[Note]]></text>
+		</element>
+		<element kind="line" uuid="b290e22f-eedb-43d9-b539-abc3586e0622" x="-13" y="40" width="820" height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<element kind="textField" uuid="7f3e34de-c395-447b-8e33-bc866354fccc" x="-10" y="10" width="70" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{booking_id}]]></expression>
+			</element>
+			<element kind="textField" uuid="629ae4db-fc72-4ab3-85e0-8dae393d68e5" x="60" y="10" width="60" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{customer_id}]]></expression>
+			</element>
+			<element kind="textField" uuid="b1634171-1b64-49c3-b26f-3b7bba4aaf28" x="120" y="10" width="110" height="20">
+				<expression><![CDATA[$F{booking_date}]]></expression>
+			</element>
+			<element kind="textField" uuid="9f59e351-d1b8-4710-afeb-c85bb9d01039" x="230" y="10" width="110" height="20">
+				<expression><![CDATA[$F{start_date}]]></expression>
+			</element>
+			<element kind="textField" uuid="81fa4d79-f0f9-438d-810b-1e331d2102e5" x="340" y="10" width="110" height="20">
+				<expression><![CDATA[$F{end_date}]]></expression>
+			</element>
+			<element kind="textField" uuid="40a39076-e04d-4be1-9047-a7625870d2ba" x="450" y="10" width="90" height="20">
+				<expression><![CDATA[$F{booking_status}]]></expression>
+			</element>
+			<element kind="textField" uuid="8c693dc8-5309-4683-afae-21dcb14e2476" x="540" y="10" width="60" height="20">
+				<expression><![CDATA[$F{advance_amount}]]></expression>
+			</element>
+			<element kind="textField" uuid="1cc36b1e-a0bc-4122-8c4b-32df513988bf" x="610" y="10" width="68" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{driver_assign}]]></expression>
+			</element>
+			<element kind="textField" uuid="7c0d4543-3252-464c-b835-e612d43db002" x="700" y="10" width="110" height="20">
+				<expression><![CDATA[$F{notes}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="99" splitType="Stretch">
+		<element kind="rectangle" uuid="b3f63748-e678-4551-bf4e-2c70e3edaa26" x="-20" y="70" width="840" height="27" backcolor="#1212B3"/>
+		<element kind="staticText" uuid="0a595725-f954-40ae-87cf-a693d1f7e348" x="-5" y="10" width="800" height="20" fontSize="12.0" hTextAlign="Justified">
+			<text><![CDATA[*  This report provides a detailed overview of customer bookings, including booking dates, rental periods, and booking statuses.]]></text>
+		</element>
+		<element kind="staticText" uuid="aeabc7fc-3a6f-4570-bd3b-a9ac69b12709" x="-3" y="30" width="800" height="20" fontSize="12.0" hTextAlign="Justified">
+			<text><![CDATA[*  It highlights key information such as advance payments, driver assignment decisions, and special customer notes.]]></text>
+		</element>
+		<element kind="staticText" uuid="591115fd-c7a5-4a3d-9628-3fdf506fdf2f" x="-8" y="50" width="800" height="20" fontSize="12.0" hTextAlign="Justified">
+			<text><![CDATA[ *  The report supports effective monitoring and management of booking activities for operational and decision-making purposes.]]></text>
+		</element>
+	</pageFooter>
+	<summary height="10" splitType="Stretch"/>
+</jasperReport>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hcj_car_rentsystem.controller.HomeController">
+   <children>
+      <Pane prefHeight="800.0" prefWidth="280.0" style="-fx-background-color: #000866;">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="213.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/h7u249u2c2pt2qtc5h97th1rlv.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="2.0" layoutY="128.0" mnemonicParsing="false" onAction="#clickHomeNav" prefHeight="36.0" prefWidth="234.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="DashBoard">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="1.0" layoutY="195.0" mnemonicParsing="false" onAction="#clickUserNav" prefHeight="36.0" prefWidth="258.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="      User Management" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="13.0" layoutY="261.0" mnemonicParsing="false" onAction="#clickVehicleNav" prefHeight="36.0" prefWidth="234.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="          Vehicle Management" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="20.0" layoutY="541.0" mnemonicParsing="false" onAction="#clickPaymentNav" prefHeight="36.0" prefWidth="241.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="       Payment Management" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="20.0" layoutY="467.0" mnemonicParsing="false" onAction="#clickBookingNav" prefHeight="36.0" prefWidth="258.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="   Booking Management" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="6.0" layoutY="400.0" mnemonicParsing="false" onAction="#clickCustomerNav" prefHeight="36.0" prefWidth="269.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="      Customer Management" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="28.0" layoutY="332.0" mnemonicParsing="false" onAction="#clickDriverNav" prefHeight="36.0" prefWidth="225.0" style="-fx-background-radius: 10; -fx-background-color: non;" text="  Driver Management" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.026515153321352875" endY="0.0909090051145264" startY="0.041666681116277526">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="25.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/toppng.com-ewd-dashboard-icon-ufaq-02-icon-1047x603.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="25.0" layoutY="402.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/toppng.com-white-person-icon-people-white-icon-abstract-backgrounds-436x368.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="25.0" layoutY="197.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/icons8-user-60.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="25.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-vehicle-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="28.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-driver-52.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="25.0" layoutY="467.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-booking-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="24.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-payment-64.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="73.0" layoutY="694.0" mnemonicParsing="false" onAction="#clickLoginNav" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #999EFF; -fx-background-radius: 10;" text="     LogOut">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.0037878796909794664" endY="0.15530308855302402">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="69.0" layoutY="692.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-log-out-48.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="mainContent" layoutX="280.0" prefHeight="800.0" prefWidth="1220.0" />
+   </children>
+</AnchorPane>
