@@ -16,8 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hcj_car_rentsystem.dao.custom.VehicleDAO;
+import lk.ijse.hcj_car_rentsystem.dao.custom.impl.VehicleDAOImpl;
 import lk.ijse.hcj_car_rentsystem.dto.VehicleDTO;
-import lk.ijse.hcj_car_rentsystem.model.VehicleModel;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -70,7 +71,7 @@ public class VehicleController implements Initializable {
     private final String VEHICLE_NOTES_REGEX = "^[A-Za-z0-9 .,()-]*$";
     private final String VEHICLE_STATUS_REGEX = "^[A-Za-z ]+$";
     
-    private final VehicleModel vehicleModel = new VehicleModel();
+    private final VehicleDAO vehicleDAO = new VehicleDAOImpl();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -140,7 +141,7 @@ public class VehicleController implements Initializable {
             try {
                 
                 VehicleDTO vehicleDTO = new VehicleDTO(model , brand, Double.parseDouble(price_per_day), status, notes);
-                boolean result = vehicleModel.saveVehicle(vehicleDTO);
+                boolean result = vehicleDAO.saveVehicle(vehicleDTO);
 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Vehicle saved successfully!").show();
@@ -177,7 +178,7 @@ public class VehicleController implements Initializable {
                 // Search by Vehicle ID
                 if (keyword.matches(VEHICLE_ID_REGEX)) {
                     int vehicleId = Integer.parseInt(keyword);
-                    vehicleDTO = vehicleModel.searchVehicle(vehicleId);
+                    vehicleDTO = vehicleDAO.searchVehicle(vehicleId);
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Invalid search keyword").show();
                     return;
@@ -231,7 +232,7 @@ public class VehicleController implements Initializable {
             } else {
             
                 VehicleDTO vehicleDTO = new VehicleDTO(Integer.parseInt(vehicleId) , model , brand, Double.parseDouble(price_per_day), status, notes);
-                boolean result = vehicleModel.updateVehicle(vehicleDTO);
+                boolean result = vehicleDAO.updateVehicle(vehicleDTO);
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Vehicle updated successfully!").show();
@@ -264,7 +265,7 @@ public class VehicleController implements Initializable {
                  new Alert(Alert.AlertType.ERROR, "Invalid ID").show();
             } else {
             
-                boolean result = vehicleModel.deleteVehicle(Integer.parseInt(id));
+                boolean result = vehicleDAO.deleteVehicle(Integer.parseInt(id));
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Vehicle deleted successfully!").show();
@@ -304,7 +305,7 @@ public class VehicleController implements Initializable {
     
         try {
         
-            List<VehicleDTO> vehicleList = vehicleModel.getVehicles();
+            List<VehicleDTO> vehicleList = vehicleDAO.getVehicles();
             
             ObservableList<VehicleDTO> obList = FXCollections.observableArrayList();
             
@@ -322,7 +323,7 @@ public class VehicleController implements Initializable {
     private void loadVehicleCounts() {
 
         try {
-            List<VehicleDTO> vehicleList = vehicleModel.getVehicles();
+            List<VehicleDTO> vehicleList = vehicleDAO.getVehicles();
 
             int total = vehicleList.size();
             int available = 0;

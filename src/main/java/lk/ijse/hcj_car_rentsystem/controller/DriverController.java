@@ -16,8 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hcj_car_rentsystem.dao.custom.DriverDAO;
+import lk.ijse.hcj_car_rentsystem.dao.custom.impl.DriverDAOImpl;
 import lk.ijse.hcj_car_rentsystem.dto.DriverDTO;
-import lk.ijse.hcj_car_rentsystem.model.DriverModel;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -83,7 +84,7 @@ public class DriverController implements Initializable {
     private final String DRIVER_STATUS_REGEX = "^[A-Za-z ]+$";
     private final String DRIVER_NOTES_REGEX = "^[A-Za-z0-9 .,()-]*$";
     
-    private final DriverModel driverModel = new DriverModel();
+    private final DriverDAO driverDao = new DriverDAOImpl();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -162,7 +163,7 @@ public class DriverController implements Initializable {
             try {
                 
                 DriverDTO driverDTO = new DriverDTO(name, contact, nic, licenseNo, address, status, notes);
-                boolean result = driverModel.saveDriver(driverDTO);
+                boolean result = driverDao.saveDriver(driverDTO);
 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Driver saved successfully!").show();
@@ -199,12 +200,12 @@ public class DriverController implements Initializable {
                 // Search by Customer ID
                 if (keyword.matches(DRIVER_ID_REGEX)) {
                     int driverId = Integer.parseInt(keyword);
-                    driverDTO = driverModel.searchDriver(driverId);
+                    driverDTO = driverDao.searchDriver(driverId);
                 }
                 
                 //Search by Customer Name
                 else if (keyword.matches(DRIVER_NAME_REGEX)) {
-                    driverDTO = driverModel.searchDriverByName(keyword);
+                    driverDTO = driverDao.searchDriverByName(keyword);
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR, "Invalid search keyword").show();
@@ -268,7 +269,7 @@ public class DriverController implements Initializable {
             } else {
             
                 DriverDTO driverDTO = new DriverDTO(Integer.parseInt(driverId) , name, contact, nic, licenseNo, address, status, notes);
-                boolean result = driverModel.updateDriver(driverDTO);
+                boolean result = driverDao.updateDriver(driverDTO);
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Driver updated successfully!").show();
@@ -301,7 +302,7 @@ public class DriverController implements Initializable {
                  new Alert(Alert.AlertType.ERROR, "Invalid ID").show();
             } else {
             
-                boolean result = driverModel.deleteDriver(Integer.parseInt(id));
+                boolean result = driverDao.deleteDriver(Integer.parseInt(id));
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Driver deleted successfully!").show();
@@ -343,7 +344,7 @@ public class DriverController implements Initializable {
     
         try {
         
-            List<DriverDTO> driverList = driverModel.getDrivers();
+            List<DriverDTO> driverList = driverDao.getDrivers();
             
             ObservableList<DriverDTO> obList = FXCollections.observableArrayList();
             
@@ -361,7 +362,7 @@ public class DriverController implements Initializable {
     private void loadDriverCounts() {
 
         try {
-            List<DriverDTO> driverList = driverModel.getDrivers();
+            List<DriverDTO> driverList = driverDao.getDrivers();
 
             int total = driverList.size();
             int available = 0;
