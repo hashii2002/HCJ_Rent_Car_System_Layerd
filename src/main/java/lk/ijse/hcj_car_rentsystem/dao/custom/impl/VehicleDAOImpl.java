@@ -118,8 +118,18 @@ public class VehicleDAOImpl implements VehicleDAO {
     }
 
     @Override
+    public boolean updateVehicleStatus(int vehicleId, String rented) {
+        return false;
+    }
+
+    @Override
     public boolean delete(String id) throws SQLException {
         return false;
+    }
+
+    @Override
+    public Vehicle search(String id) throws SQLException {
+        return null;
     }
 
     @Override

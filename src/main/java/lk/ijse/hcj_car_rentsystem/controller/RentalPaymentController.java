@@ -19,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hcj_car_rentsystem.bo.BOFactory;
+import lk.ijse.hcj_car_rentsystem.bo.custom.RentalPaymentBO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.RentalPaymentDAO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.impl.RentalPaymentDAOImpl;
 import lk.ijse.hcj_car_rentsystem.dto.RentalPaymentDTO;
@@ -56,24 +58,24 @@ public class RentalPaymentController implements Initializable {
 
     
     @FXML
-    private TableView tblPaymentDetails;
+    private TableView<RentalPaymentDTO> tblPaymentDetails;
     
     @FXML
-    private TableColumn colBookingId;
+    private TableColumn<RentalPaymentDTO, Integer> colBookingId;
     @FXML
-    private TableColumn colPaymentId;
+    private TableColumn<RentalPaymentDTO, Integer> colPaymentId;
     @FXML
-    private TableColumn colTotalKm;
+    private TableColumn<RentalPaymentDTO, String> colTotalKm;
     @FXML
-    private TableColumn colTotalAmount;
+    private TableColumn <RentalPaymentDTO, Double>colTotalAmount;
     @FXML
-    private TableColumn colDailyRent;
+    private TableColumn <RentalPaymentDTO, Double>colDailyRent;
     @FXML
-    private TableColumn colPaymentMethod;
+    private TableColumn<RentalPaymentDTO, String> colPaymentMethod;
     @FXML
-    private TableColumn colPaidTime;
+    private TableColumn<RentalPaymentDTO, String> colPaidTime;
     @FXML
-    private TableColumn colPaidDate;
+    private TableColumn <RentalPaymentDTO, String>colPaidDate;
     
     private final String BOOKING_ID_REGEX = "^[0-9]+$";
     private final String PAYMENT_ID_REGEX = "^[0-9]+$";
@@ -85,7 +87,7 @@ public class RentalPaymentController implements Initializable {
     private final String ADVANCE_AMOUNT_REGEX = "^[0-9]{1,8}(\\.[0-9]{1,2})?$";
     private final String CHARGED_PERKM_REGEX = "^[0-9]{1,8}(\\.[0-9]{1,2})?$";
     
-    private final RentalPaymentDAO rentalPaymentDao = new RentalPaymentDAOImpl();
+    private final RentalPaymentBO rentalPaymentBO = (RentalPaymentBO) BOFactory.getInstance().getBO(BOFactory.BOType.RENTALPAYMENT);
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -193,7 +195,7 @@ public class RentalPaymentController implements Initializable {
             try {
 
                 RentalPaymentDTO rentalPaymentDTO = new RentalPaymentDTO(0 ,Integer.parseInt(bookingId),startKm,endKm, totalKm, Double.parseDouble(totalAmount), Double.parseDouble(dailyRent), Double.parseDouble(amountChargedPerKm), paymentMethod, paidTime,paidDate.toString(), Double.parseDouble(advanceAmount));
-                boolean result = rentalPaymentDao.savePayment(rentalPaymentDTO);
+                boolean result = rentalPaymentBO.savePayment(rentalPaymentDTO);
 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Payment saved successfully!").show();
@@ -228,11 +230,11 @@ public class RentalPaymentController implements Initializable {
 
                 // Search by Payment ID
                 if (keyword.matches(PAYMENT_ID_REGEX)) {
-                    rentalPaymentDTO = rentalPaymentDao.searchPayment(Integer.parseInt(keyword));
+                    rentalPaymentDTO = rentalPaymentBO.searchPayment(Integer.parseInt(keyword));
                 }
                 //Search by Booking ID
                 else if (keyword.matches(BOOKING_ID_REGEX)) {
-                    rentalPaymentDTO = rentalPaymentDao.searchPaymentByBookingID(Integer.parseInt(keyword));
+                    rentalPaymentDTO = rentalPaymentBO.searchPaymentByBookingID(Integer.parseInt(keyword));
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR, "Invalid search keyword").show();
@@ -306,7 +308,7 @@ public class RentalPaymentController implements Initializable {
             } else {
             
                 RentalPaymentDTO rentalPaymentDTO = new RentalPaymentDTO(Integer.parseInt(paymentId) ,Integer.parseInt(bookingId), startKm,endKm, totalKm, Double.parseDouble(totalAmount), Double.parseDouble(dailyRent), Double.parseDouble(amountChargedPerKm), paymentMethod, paidTime,paidDate.toString(), Double.parseDouble(advanceAmount));
-                boolean result = rentalPaymentDao.updatePayment(rentalPaymentDTO);
+                boolean result = rentalPaymentBO.updatePayment(rentalPaymentDTO);
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Payment updated successfully!").show();
@@ -338,7 +340,7 @@ public class RentalPaymentController implements Initializable {
                  new Alert(Alert.AlertType.ERROR, "Invalid ID").show();
             } else {
             
-                boolean result = rentalPaymentDao.deletePayment(Integer.parseInt(id));
+                boolean result = rentalPaymentBO.deletePayment(Integer.parseInt(id));
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Payment deleted successfully!").show();
@@ -383,7 +385,7 @@ public class RentalPaymentController implements Initializable {
     
         try {
         
-            List<RentalPaymentDTO> rentalPaymentList = rentalPaymentDao.getPayments();
+            List<RentalPaymentDTO> rentalPaymentList = rentalPaymentBO.getPayments();
             
             ObservableList<RentalPaymentDTO> obList = FXCollections.observableArrayList();
             
@@ -450,7 +452,7 @@ public class RentalPaymentController implements Initializable {
             int paymentId = Integer.parseInt(paymentIdText);
 
             // Calling to print the invoice through the model
-            rentalPaymentDao.printPaymentInvoice(paymentId);
+            rentalPaymentBO.printPaymentInvoice(paymentId);
 
         } catch (NumberFormatException e) {
             new Alert(Alert.AlertType.ERROR, "Invalid Payment ID format!").show();

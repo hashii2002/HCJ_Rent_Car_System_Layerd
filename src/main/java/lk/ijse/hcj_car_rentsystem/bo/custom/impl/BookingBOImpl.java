@@ -4,10 +4,13 @@ import lk.ijse.hcj_car_rentsystem.bo.custom.BookingBO;
 import lk.ijse.hcj_car_rentsystem.dao.DAOFactory;
 import lk.ijse.hcj_car_rentsystem.dao.custom.BookingDAO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.DriverDAO;
+import lk.ijse.hcj_car_rentsystem.dao.custom.QueryDAO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.VehicleDAO;
 import lk.ijse.hcj_car_rentsystem.db.DBConnection;
 import lk.ijse.hcj_car_rentsystem.dto.BookingDTO;
+import lk.ijse.hcj_car_rentsystem.dto.CustomDTO;
 import lk.ijse.hcj_car_rentsystem.entity.Booking;
+import lk.ijse.hcj_car_rentsystem.util.CrudUtil;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -23,59 +26,71 @@ public class BookingBOImpl implements BookingBO {
 
     DriverDAO driverDAO = (DriverDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.DRIVER);
 
+    QueryDAO queryDAO = (QueryDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.QUERY);
+
     @Override
     public boolean saveBooking(BookingDTO dto) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
 
         try {
-
             connection.setAutoCommit(false);
 
-            boolean isBookingSaved = bookingDAO.save(new Booking(
-                    dto.getCustomerId(),
-                    dto.getBookingDate(),
-                    dto.getStartDate(),
-                    dto.getEndDate(),
-                    dto.getBookingStatus(),
-                    dto.getAdvanceAmount(),
-                    dto.getNotes(),
-                    dto.getDriverAssign()
-            ));
+            String bookingSql = "INSERT INTO bookings (customer_id, booking_date, start_date, end_date, booking_status, advance_amount, notes, driver_assign) VALUES (?,?,?,?,?,?,?,?)";
 
-            if (isBookingSaved) {
+            java.sql.PreparedStatement pstm = connection.prepareStatement(bookingSql, java.sql.Statement.RETURN_GENERATED_KEYS);
 
-                boolean isVehicleUpdated = vehicleDAO.updateVehicleStatus(
-                        dto.getVehicleId(),
-                        "rented"
-                );
+            pstm.setInt(1, dto.getCustomerId());
+            pstm.setString(2, dto.getBookingDate());
+            pstm.setString(3, dto.getStartDate());
+            pstm.setString(4, dto.getEndDate());
+            pstm.setString(5, dto.getBookingStatus());
+            pstm.setDouble(6, dto.getAdvanceAmount());
+            pstm.setString(7, dto.getNotes());
+            pstm.setString(8, dto.getDriverAssign());
 
-                boolean isDriverHandled = true;
+            if (pstm.executeUpdate() > 0) {
+                var rs = pstm.getGeneratedKeys();
+                if (rs.next()) {
+                    int newBookingId = rs.getInt(1);
 
-                if (dto.getDriverAssign().equalsIgnoreCase("Yes")) {
-
-                    isDriverHandled = driverDAO.updateDriverStatus(
-                            dto.getDriverId(),
-                            "assigned"
+                    boolean isVehicleAssigned = CrudUtil.execute(
+                            "INSERT INTO vehicle_assign_details VALUES (?,?)",
+                            newBookingId, dto.getVehicleId()
                     );
-                }
 
-                if (isVehicleUpdated && isDriverHandled) {
+                    boolean isVehicleUpdated = CrudUtil.execute(
+                            "UPDATE vehicles SET status = 'rented' WHERE vehicle_id = ?",
+                            dto.getVehicleId()
+                    );
 
-                    connection.commit();
-                    return true;
+                    if (isVehicleAssigned && isVehicleUpdated) {
+
+                        if (dto.getDriverAssign().equalsIgnoreCase("Yes")) {
+                            boolean isDriverAssigned = CrudUtil.execute(
+                                    "INSERT INTO driver_assign_details VALUES (?,?,?)",
+                                    newBookingId, dto.getVehicleId(), dto.getDriverId()
+                            );
+                            boolean isDriverUpdated = CrudUtil.execute(
+                                    "UPDATE drivers SET status = 'assigned' WHERE driver_id = ?",
+                                    dto.getDriverId()
+                            );
+
+                            if (!isDriverAssigned || !isDriverUpdated) {
+                                connection.rollback();
+                                return false;
+                            }
+                        }
+                        connection.commit();
+                        return true;
+                    }
                 }
             }
-
             connection.rollback();
             return false;
-
         } catch (Exception e) {
-
             connection.rollback();
             throw e;
-
         } finally {
-
             connection.setAutoCommit(true);
         }
     }
@@ -185,7 +200,7 @@ public class BookingBOImpl implements BookingBO {
     }
 
     @Override
-    public BookingDTO searchBooking(int id) throws SQLException {
+    public BookingDTO searchBooking(String id) throws SQLException {
 
         Booking booking = bookingDAO.search(String.valueOf(id));
 
@@ -233,8 +248,31 @@ public class BookingBOImpl implements BookingBO {
     }
 
     @Override
-    public List<Booking> getAllBookings() throws SQLException {
-        return bookingDAO.get();
+    public List<BookingDTO> getBookings() throws SQLException {
+
+        List<CustomDTO> bookingList = queryDAO.get();
+
+        List<BookingDTO> dtoList = new java.util.ArrayList<>();
+
+        for (CustomDTO booking : bookingList) {
+            dtoList.add(
+                    new BookingDTO(
+                            booking.getBookingId(),
+                            booking.getCustomerId(),
+                            booking.getVehicleId(),
+                            booking.getDriverId(),
+                            booking.getBookingDate(),
+                            booking.getStartDate(),
+                            booking.getEndDate(),
+                            booking.getBookingStatus(),
+                            booking.getAdvanceAmount(),
+                            booking.getNotes(),
+                            booking.getDriverAssign()
+                    )
+            );
+        }
+
+        return dtoList;
     }
 
     @Override

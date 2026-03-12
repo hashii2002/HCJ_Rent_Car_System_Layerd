@@ -186,6 +186,11 @@ public class RentalPaymentDAOImpl implements RentalPaymentDAO {
     }
 
     @Override
+    public RentalPayment search(String id) throws SQLException {
+        return null;
+    }
+
+    @Override
     public RentalPayment search(RentalPayment id) throws SQLException {
         return null;
     }

@@ -20,6 +20,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hcj_car_rentsystem.bo.BOFactory;
+import lk.ijse.hcj_car_rentsystem.bo.custom.BookingBO;
+import lk.ijse.hcj_car_rentsystem.bo.custom.DriverBO;
+import lk.ijse.hcj_car_rentsystem.bo.custom.VehicleBO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.BookingDAO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.DriverDAO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.VehicleDAO;
@@ -96,9 +100,9 @@ public class BookingController implements Initializable {
     private final String BOOKING_ADVANCE_REGEX = "^[0-9]{1,8}(\\.[0-9]{1,2})?$";
     private final String BOOKING_NOTES_REGEX = "^[A-Za-z0-9 .,()-]*$";
     
-    private final BookingDAO bookingDAO = new BookingDAOImpl();
-    private final VehicleDAO vehiclDAO = new VehicleDAOImpl();
-    private final DriverDAO driverDAO = new DriverDAOImpl();
+    private final BookingBO bookingBO = (BookingBO) BOFactory.getInstance().getBO(BOFactory.BOType.BOOKING);
+    private final VehicleBO vehicleBO = (VehicleBO) BOFactory.getInstance().getBO(BOFactory.BOType.VEHICLE);
+    private final DriverBO driverBO = (DriverBO) BOFactory.getInstance().getBO(BOFactory.BOType.DRIVER);
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -149,7 +153,7 @@ public class BookingController implements Initializable {
     // Getting the available vehicles list using a combo box
     private void loadAvailableVehicles() {
         try {
-            List<String> vehicleIdList = vehiclDAO.getAvailableVehicleIds();
+            List<String> vehicleIdList = vehicleBO.getAvailableVehicleIds();
             ObservableList<String> obList = FXCollections.observableArrayList(vehicleIdList);
             vehicleIDCombo.setItems(obList);
         } catch (Exception e) {
@@ -161,7 +165,7 @@ public class BookingController implements Initializable {
     // Getting the available drivers list using a combo box
     private void loadAvailableDrivers() {
         try {
-            List<String> driverIdList = driverDAO.getAvailableDriverIds();
+            List<String> driverIdList = driverBO.getAvailableDriverIds();
             ObservableList<String> obList = FXCollections.observableArrayList(driverIdList);
             driverIDCombo.setItems(obList);
         } catch (Exception e) {
@@ -227,7 +231,7 @@ public class BookingController implements Initializable {
                         Double.parseDouble(advance),
                         notes, 
                         driverAssign);
-                boolean result = bookingDAO.saveBooking(bookingDTO);
+                boolean result = bookingBO.saveBooking(bookingDTO);
 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Booking Completed successfully!").show();
@@ -263,11 +267,11 @@ public class BookingController implements Initializable {
 
                 // Search by Customer ID
                 if (keyword.matches(BOOKING_ID_REGEX)) {
-                    bookingDTO = bookingDAO.searchBooking(Integer.parseInt(keyword));
+                    bookingDTO = bookingBO.searchBooking(String.valueOf(Integer.parseInt(keyword)));
                 }
                 //Search by Booking ID
                 else if (keyword.matches(CUSTOMER_ID_REGEX)) {
-                    bookingDTO = bookingDAO.searchBookingByCustomerID(Integer.parseInt(keyword));
+                    bookingDTO = bookingBO.searchBookingByCustomerID(Integer.parseInt(keyword));
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR, "Invalid search keyword").show();
@@ -353,7 +357,7 @@ public class BookingController implements Initializable {
                         Double.parseDouble(advance),
                         notes, 
                         driverAssign);
-                boolean result = bookingDAO.updateBooking(bookingDTO);
+                boolean result = bookingBO.updateBooking(bookingDTO);
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Booking updated successfully!").show();
@@ -384,7 +388,7 @@ public class BookingController implements Initializable {
         }
 
         try {
-            boolean result = bookingDAO.deleteBooking(
+            boolean result = bookingBO.deleteBooking(
                 selectedBooking.getBookingId(),
                 selectedBooking.getVehicleId(),
                 selectedBooking.getDriverId()
@@ -429,7 +433,7 @@ public class BookingController implements Initializable {
     
         try {
         
-            List<BookingDTO> bookingList = bookingDAO.getBookings();
+            List<BookingDTO> bookingList = bookingBO.getBookings();
             
             ObservableList<BookingDTO> obList = FXCollections.observableArrayList();
             
@@ -451,7 +455,7 @@ public class BookingController implements Initializable {
         int cancelledCount = 0;
 
         try {
-            List<BookingDTO> bookingList = bookingDAO.getBookings();
+            List<BookingDTO> bookingList = bookingBO.getBookings();
 
             for (BookingDTO booking : bookingList) {
 
@@ -490,7 +494,7 @@ public class BookingController implements Initializable {
     void handlePrint(ActionEvent event) {
         
         try {
-            bookingDAO.printBookingReports();
+            bookingBO.printBookingReports();
         } catch(Exception e){
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();

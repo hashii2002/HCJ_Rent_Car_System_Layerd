@@ -16,6 +16,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.control.Label;
+import lk.ijse.hcj_car_rentsystem.bo.BOFactory;
+import lk.ijse.hcj_car_rentsystem.bo.custom.CustomerBO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.CustomerDAO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.impl.CustomerDAOImpl;
 import lk.ijse.hcj_car_rentsystem.dto.CustomerDTO;
@@ -42,9 +44,9 @@ public class CustomerController implements Initializable {
     private TextField searchField;
     
     @FXML
-    private TableView tblCustomer;
+    private TableView<CustomerDTO> tblCustomer;
     @FXML
-    private TableColumn colCustomerId;
+    private TableColumn<CustomerDTO, Integer> colCustomerId;
     @FXML
     private TableColumn colUserId;
     @FXML
@@ -69,7 +71,7 @@ public class CustomerController implements Initializable {
     private final String CUSTOMER_NIC_REGEX = "^(\\d{9}[VvXx]|\\d{12})$";
     private final String CUSTOMER_LICENSENO_REGEX = "^[A-Z][0-9]{7}$";
     
-    private final CustomerDAO customerDAO = new CustomerDAOImpl();
+    private final CustomerBO customerBO = (CustomerBO) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -134,7 +136,7 @@ public class CustomerController implements Initializable {
             try {
                 
                 CustomerDTO cusDTO = new CustomerDTO(Integer.parseInt(userId), name, address, contact, nic , licenseNo);
-                boolean result = customerDAO.saveCustomer(cusDTO);
+                boolean result = customerBO.saveCustomer(cusDTO);
 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Customer saved successfully!").show();
@@ -169,11 +171,11 @@ public class CustomerController implements Initializable {
 
                 // Search by Customer ID
                 if (keyword.matches(CUSTOMER_ID_REGEX)) {
-                    customerDTO = customerDAO.searchCustomer(keyword);
+                    customerDTO = customerBO.searchCustomer(keyword);
                 }
                 //Search by Customer Name
                 else if (keyword.matches(CUSTOMER_NAME_REGEX)) {
-                    customerDTO = customerDAO.searchCustomerByName(keyword);
+                    customerDTO = customerBO.searchCustomerByName(keyword);
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR, "Invalid search keyword").show();
@@ -233,7 +235,7 @@ public class CustomerController implements Initializable {
             } else {
             
                 CustomerDTO customerDTO = new CustomerDTO(Integer.parseInt(cusId) , Integer.parseInt(userId) , name, address,contact, nic, licenseNo);
-                boolean result = customerDAO.updateCustomer(customerDTO);
+                boolean result = customerBO.updateCustomer(customerDTO);
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Customer updated successfully!").show();
@@ -264,7 +266,7 @@ public class CustomerController implements Initializable {
                  new Alert(Alert.AlertType.ERROR, "Invalid ID").show();
             } else {
             
-                boolean result = customerDAO.deleteCustomer(id);
+                boolean result = customerBO.deleteCustomer(id);
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "Customer deleted successfully!").show();
@@ -303,7 +305,7 @@ public class CustomerController implements Initializable {
     
         try {
         
-            List<CustomerDTO> customerList = customerDAO.getCustomers();
+            List<CustomerDTO> customerList = customerBO.getCustomers();
             
             ObservableList<CustomerDTO> obList = FXCollections.observableArrayList();
             

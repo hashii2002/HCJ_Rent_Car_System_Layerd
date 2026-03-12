@@ -15,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.hcj_car_rentsystem.bo.BOFactory;
+import lk.ijse.hcj_car_rentsystem.bo.custom.UserBO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.UserDAO;
 import lk.ijse.hcj_car_rentsystem.dao.custom.impl.UserDAOImpl;
 import lk.ijse.hcj_car_rentsystem.dto.UserDTO;
@@ -79,7 +81,7 @@ public class UserController implements Initializable {
     private final String USER_ROLE_REGEX = "^[A-Za-z]+$";
     private final String USER_EMAIL_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
     
-    private final UserDAO userDAO = new UserDAOImpl();
+    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -156,7 +158,7 @@ public class UserController implements Initializable {
             try {
                 
                 UserDTO userDTO = new UserDTO(name,userName,password, email, address,role, nic, contact );
-                boolean result = userDAO.saveUser(userDTO);
+                boolean result = userBO.saveUser(userDTO);
 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "user saved successfully!").show();
@@ -192,11 +194,11 @@ public class UserController implements Initializable {
                 // Search by User ID
                 if (keyword.matches(USER_ID_REGEX)) {
                     int userId = Integer.parseInt(keyword);
-                    userDTO = userDAO.searchUser(userId);
+                    userDTO = userBO.searchUser(userId);
                 }
                 //Search by User Name
                 else if (keyword.matches(USER_FULLNAME_REGEX)) {
-                    userDTO = userDAO.searchUserByName(keyword);
+                    userDTO = userBO.searchUserByName(keyword);
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR, "Invalid search keyword").show();
@@ -264,7 +266,7 @@ public class UserController implements Initializable {
             } else {
             
                 UserDTO userDTO = new UserDTO(Integer.parseInt(userId) ,name,userName,password ,email, address, role, nic , contact);
-                boolean result = userDAO.updateUser(userDTO);
+                boolean result = userBO.updateUser(userDTO);
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "User updated successfully!").show();
@@ -295,7 +297,7 @@ public class UserController implements Initializable {
                  new Alert(Alert.AlertType.ERROR, "Invalid ID").show();
             } else {
             
-                boolean result = userDAO.deleteUser(Integer.parseInt(id));
+                boolean result = userBO.deleteUser(Integer.parseInt(id));
                 
                 if(result) {
                     new Alert(Alert.AlertType.INFORMATION, "User deleted successfully!").show();
@@ -336,7 +338,7 @@ public class UserController implements Initializable {
     
         try {
         
-            List<UserDTO> userList = userDAO.getUsers();
+            List<UserDTO> userList = userBO.getUsers();
             
             ObservableList<UserDTO> obList = FXCollections.observableArrayList();
             

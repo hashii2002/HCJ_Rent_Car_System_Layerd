@@ -15,4 +15,7 @@ public interface BookingDAO extends CrudDAO<Booking> {
     public BookingDTO searchBookingByCustomerID (int cusId) throws SQLException;
     //public List<BookingDTO> getBookings() throws SQLException;
     public void printBookingReports() throws JRException, SQLException;
+
+    Booking search(Booking id) throws SQLException;
+
 }

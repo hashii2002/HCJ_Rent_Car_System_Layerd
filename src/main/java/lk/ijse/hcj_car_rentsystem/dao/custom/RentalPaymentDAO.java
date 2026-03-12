@@ -16,4 +16,6 @@ public interface RentalPaymentDAO extends CrudDAO<RentalPayment> {
     public RentalPaymentDTO searchPaymentByBookingID (int cusId) throws SQLException;
     //public List<RentalPaymentDTO> getPayments() throws SQLException;
     public void printPaymentInvoice(int paymentId) throws JRException, SQLException;
+
+    RentalPayment search(RentalPayment id) throws SQLException;
 }

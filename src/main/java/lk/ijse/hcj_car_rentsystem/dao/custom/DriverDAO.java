@@ -16,5 +16,6 @@ public interface DriverDAO extends CrudDAO<Driver> {
     public DriverDTO searchDriverByName(String driverName) throws SQLException;
    // public List<DriverDTO> getDrivers() throws SQLException;
     public List<String> getAvailableDriverIds() throws SQLException;
-    boolean updateDriverStatus(int driverId, String assigned);
+    boolean updateDriverStatus(int driverId, String assigned) throws SQLException;
+
 }

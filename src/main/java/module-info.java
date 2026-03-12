@@ -4,7 +4,7 @@ module lk.ijse.hcj_car_rentsystem {
     requires java.base;
     requires java.sql;
     requires net.sf.jasperreports.core;
-    requires lk.ijse.hcj_car_rentsystem;
+    //requires lk.ijse.hcj_car_rentsystem;
 
     opens lk.ijse.hcj_car_rentsystem.controller to javafx.fxml;
     opens lk.ijse.hcj_car_rentsystem.dto to javafx.base;

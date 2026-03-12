@@ -58,12 +58,12 @@ public class DriverDAOImpl implements DriverDAO {
         return result;
     }
 
-    public Driver search(int id) throws SQLException {
+    public Driver search(String id) throws SQLException {
 
         ResultSet rs =
                 CrudUtil.execute(
                         "SELECT * FROM drivers WHERE driver_id=?",
-                        id
+                        Integer.parseInt(id)
                 );
 
         if(rs.next()) {
@@ -142,12 +142,14 @@ public class DriverDAOImpl implements DriverDAO {
     }
 
     @Override
+    public boolean updateDriverStatus(int driverId, String assigned) throws SQLException {
+        String sql = "UPDATE drivers SET status = ? WHERE driver_id = ?";
+        return CrudUtil.execute(sql, assigned, driverId);
+    }
+
+    @Override
     public boolean delete(String id) throws SQLException {
         return false;
     }
 
-    @Override
-    public Driver search(Driver id) throws SQLException {
-        return null;
-    }
 }

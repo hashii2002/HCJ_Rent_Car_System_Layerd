@@ -53,11 +53,6 @@ public class CustomerDAOImpl  implements CustomerDAO {
         return result;
     }
 
-    @Override
-    public Customer search(Customer id) throws SQLException {
-        return null;
-    }
-
     public Customer search(String id) throws SQLException {
 
         ResultSet rs =
@@ -78,6 +73,11 @@ public class CustomerDAOImpl  implements CustomerDAO {
             return new Customer(cusId, userId, cusName, cusAddress, cusContact, cusNic, cusLicenseNo);
         }
 
+        return null;
+    }
+
+    @Override
+    public Customer search(Customer id) throws SQLException {
         return null;
     }
 

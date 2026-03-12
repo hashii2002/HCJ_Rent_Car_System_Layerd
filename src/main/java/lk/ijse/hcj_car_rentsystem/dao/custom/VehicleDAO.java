@@ -16,4 +16,6 @@ public interface VehicleDAO extends CrudDAO<Vehicle> {
    // public List<VehicleDTO> getVehicles() throws SQLException;
     public List<String> getAvailableVehicleIds() throws SQLException;
     boolean updateVehicleStatus(int vehicleId, String rented);
+
+    Vehicle search(Vehicle id) throws SQLException;
 }

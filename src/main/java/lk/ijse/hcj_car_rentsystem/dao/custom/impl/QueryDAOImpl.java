@@ -1,6 +1,7 @@
 package lk.ijse.hcj_car_rentsystem.dao.custom.impl;
 
 import lk.ijse.hcj_car_rentsystem.dao.custom.QueryDAO;
+import lk.ijse.hcj_car_rentsystem.dto.BookingDTO;
 import lk.ijse.hcj_car_rentsystem.dto.CustomDTO;
 import lk.ijse.hcj_car_rentsystem.entity.Booking;
 import lk.ijse.hcj_car_rentsystem.util.CrudUtil;
@@ -43,5 +44,10 @@ public class QueryDAOImpl implements QueryDAO {
         }
 
         return bookingList;
+    }
+
+    @Override
+    public List<BookingDTO> getBookings() throws SQLException {
+        return List.of();
     }
 }

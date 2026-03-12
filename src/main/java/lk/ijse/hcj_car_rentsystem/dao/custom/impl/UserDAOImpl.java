@@ -50,22 +50,22 @@ public class UserDAOImpl implements UserDAO {
     }
 
 
-    public boolean delete(int id) throws SQLException {
+    public boolean delete(String id) throws SQLException {
         boolean result =
                 CrudUtil.execute(
                         "DELETE FROM users WHERE user_id=?",
-                        id
+                        Integer.parseInt(id)
                 );
 
         return result;
     }
 
-    public User search(int id) throws SQLException {
+    public User search(String id) throws SQLException {
 
         ResultSet rs =
                 CrudUtil.execute(
                         "SELECT * FROM users WHERE user_id=?",
-                        id
+                        Integer.parseInt(id)
                 );
 
         if(rs.next()) {
@@ -140,10 +140,6 @@ public class UserDAOImpl implements UserDAO {
         return userList;
     }
 
-    @Override
-    public boolean delete(String id) throws SQLException {
-        return false;
-    }
 
     @Override
     public User search(User id) throws SQLException {

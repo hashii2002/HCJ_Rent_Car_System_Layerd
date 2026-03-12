@@ -12,6 +12,8 @@ public interface UserDAO extends CrudDAO<User> {
     //public boolean deleteUser(int id) throws SQLException;
    // public UserDTO searchUser(int id) throws SQLException;
     public UserDTO searchUserByName(String name) throws SQLException;
-   // public List<UserDTO> getUsers() throws SQLException;
+
+    User search(User id) throws SQLException;
+    // public List<UserDTO> getUsers() throws SQLException;
 
 }
