@@ -9,7 +9,7 @@ public class DAOFactory {
         return daoFactory==null? new DAOFactory():daoFactory;
     }
     public enum DAOType{
-        CUSTOMER,BOOKING,DRIVER,USER,VEHICLE, PAYMENT, QUERY, RENTALPAYMENT
+        CUSTOMER,BOOKING,DRIVER,USER,VEHICLE, QUERY, RENTALPAYMENT
     }
 
     public SuperDAO getDAO(DAOType daoType){

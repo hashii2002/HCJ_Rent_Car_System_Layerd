@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentalPaymentBOImpl implements RentalPaymentBO {
-    RentalPaymentDAO rentalPaymentDAO = (RentalPaymentDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.PAYMENT);
+    RentalPaymentDAO rentalPaymentDAO = (RentalPaymentDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.RENTALPAYMENT);
 
     @Override
     public boolean savePayment(RentalPaymentDTO rentalPaymentDTO) throws SQLException {

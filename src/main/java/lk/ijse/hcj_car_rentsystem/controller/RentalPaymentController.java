@@ -242,7 +242,7 @@ public class RentalPaymentController implements Initializable {
                 }
 
                 if (rentalPaymentDTO != null){
-                    paymentIdField.setText(String.valueOf(rentalPaymentDTO.getBookingId()));
+                    paymentIdField.setText(String.valueOf(rentalPaymentDTO.getPaymentId()));
                     bookingIdField.setText(String.valueOf(rentalPaymentDTO.getBookingId()));
                     startKmField.setText(rentalPaymentDTO.getStartKm());
                     endKmField.setText(rentalPaymentDTO.getEndKm());

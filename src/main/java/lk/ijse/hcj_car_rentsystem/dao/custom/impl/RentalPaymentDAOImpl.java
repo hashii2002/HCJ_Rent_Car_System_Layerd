@@ -62,22 +62,22 @@ public class RentalPaymentDAOImpl implements RentalPaymentDAO {
         return result;
     }
 
-    public boolean delete(int id) throws SQLException {
+    public boolean delete(String id) throws SQLException {
         boolean result =
                 CrudUtil.execute(
                         "DELETE FROM payments WHERE payment_id=?",
-                        id
+                        Integer.parseInt(id)
                 );
 
         return result;
     }
 
-    public RentalPayment search(int id) throws SQLException {
+    public RentalPayment search(String id) throws SQLException {
 
         ResultSet rs =
                 CrudUtil.execute(
                         "SELECT * FROM payments WHERE payment_id=?",
-                        id
+                        Integer.parseInt(id)
                 );
 
         if(rs.next()) {
@@ -178,16 +178,6 @@ public class RentalPaymentDAOImpl implements RentalPaymentDAO {
         // Step 04
         JasperViewer.viewReport(jp, false);
 
-    }
-
-    @Override
-    public boolean delete(String id) throws SQLException {
-        return false;
-    }
-
-    @Override
-    public RentalPayment search(String id) throws SQLException {
-        return null;
     }
 
     @Override
